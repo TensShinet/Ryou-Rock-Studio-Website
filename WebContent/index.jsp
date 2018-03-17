@@ -38,8 +38,8 @@
 		
 		
 </head>
-<% AccountBean user=(AccountBean)session.getAttribute("user"); 
-   if( user==null || user.getUsername()==null){%><!-- 如果没有session就显示登录页面 -->
+<% AccountBean userBean=(AccountBean)session.getAttribute("userBean"); 
+   if( userBean==null){%><!-- 如果没有session就显示登录页面 -->
 <body>
 <div class="container-fluid-full">
 		<div class="row-fluid">
@@ -59,7 +59,7 @@
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="userpassword" id="password" type="password" placeholder="输入密码"/>
+								<input class="input-large span10" name="password" id="password" type="password" placeholder="输入密码"/>
 							</div>
 							<div class="clearfix"></div>
 							
@@ -146,7 +146,7 @@
 
 		<script src="js/custom.js"></script>
 	<!-- end: JavaScript-->
-	
+
 </body>
 <%}else{ %><!-- 如果有session跳转到validate.jsp -->
 <%response.sendRedirect("./validate.jsp"); %>

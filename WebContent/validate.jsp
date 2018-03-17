@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>凌岩工作室</title>
 </head>
 <body>
 <%@ page import="net.rrs.web.model.AccountBean" %><!--导入AccountBean包-->
@@ -21,14 +21,14 @@ if(userBean != null){
 	username=user.getUsername()+"[user]";
 	password=user.getPassword()+"[user]";
 }
-out.print("你输入的用户名为:"+username+" <br /> ");
-out.print("你输入的密码为:"+password+" <br /> ");
 if(userCheck.valiUser(userBean) || userCheck.valiUser(user)){
 	out.print("Login Sucess!!");
 	if(userBean==null) request.getSession().setAttribute("userBean", user);//保存session
 }else{
-	out.print("Login Failed!");
-	response.sendRedirect("./index.jsp"); 
+	out.print("<script>alert(\"密码错误或登陆信息失效，请重新登陆！\");"+
+	"window.document.location.href=\"index.jsp\";</script>");
+	out.print("你输入的用户名为:"+username+" <br /> ");
+	out.print("你输入的密码为:"+password+" <br /> ");
 }
 %>
 </body>
